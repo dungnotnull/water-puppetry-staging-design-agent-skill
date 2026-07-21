@@ -1,0 +1,21 @@
+%% hooks-lifecycle.mmd - Hook event lifecycle
+sequenceDiagram
+    participant Runner as AgentRunner
+    participant Hooks as HookRegistry
+    participant Skill as SkillRegistry
+    participant State as AgentState
+    Runner->>Hooks: fire(run_start)
+    loop each skill in plan
+        Runner->>Hooks: fire(pre_invoke)
+        Runner->>Skill: execute(skill, args)
+        Skill->>State: set(state_key, result)
+        Runner->>Hooks: fire(post_invoke)
+        Hooks->>State: consume token budget
+    end
+    alt gate fails
+        Runner->>Hooks: fire(on_gate_fail)
+    end
+    alt error
+        Runner->>Hooks: fire(on_error / on_degrade)
+    end
+    Runner->>Hooks: fire(run_end | run_abort)

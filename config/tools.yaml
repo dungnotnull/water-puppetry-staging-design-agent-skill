@@ -1,0 +1,107 @@
+# tools.yaml - Declarative tool metadata for the agent tool registry.
+# Execution handlers live in tools/tool_registry.py. This file documents the
+# contract surface (category, network/destructive flags, tags, schema refs) that
+# the agent reasons over when choosing which tool to invoke.
+
+version: 1
+tools:
+  - name: validate_ip_rating
+    category: safety
+    requires_network: false
+    destructive: false
+    tags: [lighting, ip-rating, iec60529]
+    input_schema: tool-validate-ip-rating
+    description: "Validate a luminaire IP rating (IEC 60529) against the deployment environment near/under water."
+
+  - name: compute_dmx_address
+    category: lighting
+    requires_network: false
+    destructive: false
+    tags: [dmx, addressing, ansi-e1.11]
+    input_schema: tool-compute-dmx-address
+    description: "Compute and validate a DMX512-A start address + footprint against a 512-slot universe."
+
+  - name: estimate_pool_volume
+    category: engineering
+    requires_network: false
+    destructive: false
+    tags: [water-stage, volume]
+    input_schema: tool-estimate-pool-volume
+    description: "Estimate water volume, mass, and surface area for a rectangular pool."
+
+  - name: lighting_angle_check
+    category: lighting
+    requires_network: false
+    destructive: false
+    tags: [glare, reflection, angle]
+    input_schema: tool-lighting-angle-check
+    description: "Check a lighting angle against glare/reflection thresholds for water stages."
+
+  - name: electrical_safety_check
+    category: safety
+    requires_network: false
+    destructive: false
+    tags: [rcd, isolation, iec60364]
+    input_schema: tool-electrical-safety-check
+    description: "Validate electrical safety parameters for circuits near water (IEC 60364-7-702)."
+
+  - name: score_folktale_repertoire
+    category: heritage
+    requires_network: false
+    destructive: false
+    tags: [folktale, repertoire, grounding]
+    input_schema: tool-score-folktale-repertoire
+    description: "Score a user query against the documented water-puppetry folk-tale repertoire."
+
+  - name: evidence_tier
+    category: evidence
+    requires_network: false
+    destructive: false
+    tags: [tier, classification]
+    input_schema: tool-evidence-tier
+    description: "Classify a source/venue into the 4-tier evidence hierarchy."
+
+  - name: risk_matrix
+    category: advisory
+    requires_network: false
+    destructive: false
+    tags: [risk, matrix]
+    input_schema: tool-risk-matrix
+    description: "Compute a 1-25 risk score from probability x impact with action guidance."
+
+  - name: verdict_classifier
+    category: advisory
+    requires_network: false
+    destructive: false
+    tags: [verdict, classification]
+    input_schema: tool-verdict-classifier
+    description: "Map an evidence/risk profile to one of the 4 declared verdict categories."
+
+  - name: knowledge_lookup
+    category: knowledge
+    requires_network: false
+    destructive: false
+    tags: [brain, rag, lookup]
+    input_schema: tool-knowledge-lookup
+    description: "Query SECOND-KNOWLEDGE-BRAIN.md for entries matching keywords."
+
+  - name: estimate_tokens
+    category: context
+    requires_network: false
+    destructive: false
+    tags: [tokens, budget]
+    input_schema: tool-estimate-tokens
+    description: "Estimate the token count of a structured payload."
+
+  - name: validate_report_schema
+    category: validation
+    requires_network: false
+    destructive: false
+    tags: [schema, report]
+    input_schema: tool-validate-report-schema
+    description: "Validate a final report object against the final-report JSON schema."
+
+policy:
+  allow_network_tools: false        # offline-first; flip to true when live fetch is wired
+  require_input_validation: true
+  max_calls_per_run: 50

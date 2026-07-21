@@ -1,0 +1,94 @@
+# skill_registry.yaml - Declarative skill registry for water-puppetry-staging-design.
+# The runtime registry (tools/skill_registry.py) loads built-in handlers and
+# overlays the metadata below. Fields here are authoritative for: description,
+# capabilities, gate bindings, and which tools/sub-skills each skill may use.
+# Input/output schemas live in assets/schemas/<name>.schema.json.
+
+version: 1
+domain: "Traditional Performing Arts Staging & Production Design"
+
+skills:
+  - name: water-puppetry-staging-design
+    description: "Main harness: orchestrates the 5 sub-skills into a risk-disclosed report."
+    category: harness
+    step: 0
+    capabilities: [analyze, design, advise, orchestrate]
+    sub_skills:
+      - sub-gather-requirements
+      - sub-evidence-collector
+      - sub-core-analysis
+      - sub-knowledge-updater
+      - sub-advisor
+    tools:
+      - validate_ip_rating
+      - compute_dmx_address
+      - estimate_pool_volume
+      - lighting_angle_check
+      - electrical_safety_check
+      - score_folktale_repertoire
+      - evidence_tier
+      - risk_matrix
+      - verdict_classifier
+      - knowledge_lookup
+    gates: [U1, U2, U3, U4, U5, U6, G1, G2, G3, G4]
+    input_schema: harness-input
+    output_schema: harness-output
+
+  - name: sub-gather-requirements
+    description: "Clarify object, scope, timeframe, inputs, audience, language before data fetching."
+    category: sub-agent
+    step: 1
+    capabilities: [intake]
+    gates: [G-REQ]
+    input_schema: requirements
+    output_schema: requirements
+
+  - name: sub-evidence-collector
+    description: "Fetch authoritative real-time + reference data with tier labels."
+    category: sub-agent
+    step: 2
+    capabilities: [research]
+    tools: [evidence_tier]
+    gates: [U1, U3]
+    input_schema: evidence-bundle
+    output_schema: evidence-bundle
+
+  - name: sub-core-analysis
+    description: "Design a water-puppetry scenario grounded in heritage, lighting, and safety."
+    category: sub-agent
+    step: 3
+    capabilities: [design, engineer]
+    tools:
+      - score_folktale_repertoire
+      - estimate_pool_volume
+      - validate_ip_rating
+      - lighting_angle_check
+      - electrical_safety_check
+    gates: [G1, G2, G3, G4]
+    input_schema: core-analysis
+    output_schema: core-analysis
+
+  - name: sub-knowledge-updater
+    description: "Query the knowledge brain for tiered citations and flag gaps."
+    category: sub-agent
+    step: 4
+    capabilities: [research, rag]
+    tools: [knowledge_lookup]
+    gates: [U1]
+    input_schema: knowledge-evidence
+    output_schema: knowledge-evidence
+
+  - name: sub-advisor
+    description: "Synthesize prior analysis into a risk-disclosed conclusion."
+    category: sub-agent
+    step: 5
+    capabilities: [advise, synthesize]
+    tools: [risk_matrix, verdict_classifier]
+    gates: [U2, U6]
+    input_schema: advisor-conclusion
+    output_schema: advisor-conclusion
+
+# Resolution precedence: exact name > capability match > category fallback.
+resolution:
+  precedence: [exact, capability, category]
+  default_skill: water-puppetry-staging-design

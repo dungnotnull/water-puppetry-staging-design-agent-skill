@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "required": [
+    "angle_degrees"
+  ],
+  "properties": {
+    "angle_degrees": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 90
+    }
+  },
+  "additionalProperties": false
+}

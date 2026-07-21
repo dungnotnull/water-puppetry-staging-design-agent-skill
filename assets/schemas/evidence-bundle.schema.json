@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://water-puppetry.local/schemas/evidence-bundle.schema.json",
+  "title": "EvidenceBundle",
+  "type": "object",
+  "required": [
+    "current_data",
+    "authoritative_docs",
+    "recent_news",
+    "degraded"
+  ],
+  "properties": {
+    "current_data": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "authoritative_docs": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "recent_news": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "reference_benchmarks": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "degraded": {
+      "type": "boolean"
+    },
+    "limitation_flag": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

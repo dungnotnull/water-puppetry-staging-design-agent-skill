@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://water-puppetry.local/schemas/knowledge-evidence.schema.json",
+  "title": "KnowledgeEvidence",
+  "type": "object",
+  "required": [
+    "citations",
+    "gaps",
+    "coverage"
+  ],
+  "properties": {
+    "citations": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "coverage": {
+      "type": "string",
+      "enum": [
+        "Strong",
+        "Moderate",
+        "Weak"
+      ]
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": true
+}

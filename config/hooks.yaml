@@ -1,0 +1,44 @@
+# hooks.yaml - Lifecycle hook wiring for the agent harness.
+# Hooks are registered by tools/hooks.py::register_default_hooks. This file
+# documents the event catalog, ordering (priority ascending), and which hooks
+# are enabled by feature flag.
+
+version: 1
+events:
+  - run_start
+  - pre_invoke
+  - post_invoke
+  - on_gate_fail
+  - on_error
+  - on_degrade
+  - run_end
+  - run_abort
+
+hooks:
+  - name: logging
+    events: [run_start, pre_invoke, post_invoke, on_gate_fail, on_error, on_degrade, run_end, run_abort]
+    priority: 10
+    enabled: true
+  - name: gate_audit
+    events: [on_gate_fail, post_invoke]
+    priority: 20
+    enabled: true
+  - name: token_budget
+    events: [post_invoke]
+    priority: 30
+    enabled: true
+  - name: degradation
+    events: [on_error, on_degrade]
+    priority: 30
+    enabled: true
+  - name: event_emitter
+    events: [run_start, post_invoke, on_error, run_end]
+    priority: 40
+    enabled: false   # enable to fan-out to user listeners (e.g. SSE / state sync)
+
+decisions:
+  continue: "proceed to next step"
+  skip: "do not invoke the current step"
+  retry: "re-invoke the current step (bounded by max_gate_retries)"
+  abort: "stop the run; emit run_abort"
+  inject: "mutate state/data before continuing"

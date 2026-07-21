@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://water-puppetry.local/schemas/advisor-conclusion.schema.json",
+  "title": "AdvisorConclusion",
+  "type": "object",
+  "required": [
+    "verdict",
+    "scenarios",
+    "key_risks",
+    "evidence_chain",
+    "disclosure"
+  ],
+  "properties": {
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "Production-Ready Design",
+        "Feasible with Refinements",
+        "High-Risk Production",
+        "Inconclusive"
+      ]
+    },
+    "scenarios": {
+      "type": "object"
+    },
+    "key_risks": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "evidence_chain": {
+      "type": "array"
+    },
+    "remediation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "disclosure": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

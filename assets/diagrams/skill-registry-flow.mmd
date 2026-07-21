@@ -1,0 +1,16 @@
+%% skill-registry-flow.mmd - Mermaid diagram of skill registry resolution
+flowchart LR
+    REQ[RunRequest] --> ROUTER[IntentRouter]
+    ROUTER --> PLAN[RoutingPlan]
+    PLAN --> REG[SkillRegistry]
+    REG --> EXE[execute skill]
+    EXE --> VAL[validate I/O against assets/schemas]
+    VAL --> STATE[AgentState]
+    STATE --> HOOKS[HookRegistry - lifecycle events]
+    HOOKS --> TOOLS[ToolRegistry - dynamic tool calls]
+    TOOLS --> BRAIN[(SECOND-KNOWLEDGE-BRAIN.md)]
+    STATE --> GATES[Quality Gates]
+    GATES --> REPORT[RunReport]
+
+    classDef store fill:#fff3e0,stroke:#ef6c00,stroke-width:1px;
+    class BRAIN,STATE store;

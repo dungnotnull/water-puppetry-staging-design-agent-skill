@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "evidence_strength",
+    "max_risk_score"
+  ],
+  "properties": {
+    "evidence_strength": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "max_risk_score": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 25
+    },
+    "data_available": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

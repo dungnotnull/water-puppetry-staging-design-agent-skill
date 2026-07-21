@@ -1,0 +1,17 @@
+# feature_flags.yaml - System-wide feature flags.
+# Consumed by tools/config_loader.py::FeatureFlags. Flags can be overridden by
+# environment variables of the form WPSD_FLAG_<NAME_UPPER>.
+
+version: 1
+flags:
+  enable_router: true              # chain-of-thought intent routing
+  enable_hooks: true               # lifecycle hook system
+  enable_schema_validation: true   # validate skill/tool I/O against JSON schemas
+  enable_token_budget: true        # enforce context-window budget
+  enable_compaction: true          # auto-summarize when near context limit
+  enable_event_emitter: false      # fan-out lifecycle events to listeners
+  enable_live_fetch: false         # online evidence collection (offline-first default)
+  enable_knowledge_crawl: true     # SECOND-KNOWLEDGE-BRAIN crawl pipeline
+  enable_bilingual: true           # Vietnamese/English output
+  strict_gates: true               # 2-retry auto-fix then limitation flag
+  max_gate_retries: 2

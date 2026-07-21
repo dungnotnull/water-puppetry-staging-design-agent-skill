@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "required": [
+    "rcd_trip_ma",
+    "distance_to_water_m"
+  ],
+  "properties": {
+    "rcd_trip_ma": {
+      "type": "number",
+      "minimum": 0
+    },
+    "distance_to_water_m": {
+      "type": "number",
+      "minimum": 0
+    },
+    "has_galvanic_isolation": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

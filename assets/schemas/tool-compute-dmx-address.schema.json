@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "required": [
+    "start_address",
+    "channel_footprint"
+  ],
+  "properties": {
+    "start_address": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 512
+    },
+    "channel_footprint": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "universe": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 65535
+    }
+  },
+  "additionalProperties": false
+}

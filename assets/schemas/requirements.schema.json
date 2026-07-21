@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://water-puppetry.local/schemas/requirements.schema.json",
+  "title": "Requirements",
+  "description": "Structured requirements emitted by sub-gather-requirements.",
+  "type": "object",
+  "required": [
+    "object",
+    "language",
+    "analysis_type"
+  ],
+  "properties": {
+    "object": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "string"
+    },
+    "timeframe": {
+      "type": "string"
+    },
+    "available_inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "target_audience": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "English",
+        "Vietnamese",
+        "en",
+        "vi"
+      ]
+    },
+    "analysis_type": {
+      "type": "string",
+      "enum": [
+        "combined",
+        "design",
+        "risk",
+        "comparison"
+      ]
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,112 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "water-puppetry-staging-design"
+version = "1.1.0"
+description = "Water-Puppetry (Roi Nuoc) Scenario Design & Modern Lighting/Effects Integration — Claude Code skill harness"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "water-puppetry-staging-design contributors" }]
+keywords = [
+    "water-puppetry",
+    "traditional-performing-arts",
+    "stage-design",
+    "lighting-design",
+    "production-design",
+    "claude-code",
+    "ai-agent-harness",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Multimedia :: Graphics",
+]
+requires-python = ">=3.11"
+dependencies = [
+    "crawl4ai>=0.3.0",
+    "feedparser>=6.0.10",
+    "python-dateutil>=2.8.2",
+    "requests>=2.31.0",
+    "PyYAML>=6.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "pytest-mock>=3.12.0",
+    "ruff>=0.3.0",
+    "mypy>=1.8.0",
+    "types-requests>=2.31.0",
+    "types-python-dateutil>=2.8.0",
+    "pre-commit>=3.6.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/contributor/water-puppetry-staging-design"
+Documentation = "https://github.com/contributor/water-puppetry-staging-design/blob/main/README.md"
+Repository = "https://github.com/contributor/water-puppetry-staging-design"
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+    "SIM", # flake8-simplify
+]
+ignore = ["E501"]  # line-length handled by formatter
+
+[tool.ruff.lint.isort]
+known-first-party = ["tools", "tests"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+exclude = ["tests/"]
+
+[tool.pytest.ini_options]
+minversion = "7.4"
+testpaths = ["tools"]
+pythonpath = ["."]
+addopts = "-v --tb=short --strict-markers"
+
+[tool.coverage.run]
+source = ["tools"]
+omit = ["tools/test_*.py"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]

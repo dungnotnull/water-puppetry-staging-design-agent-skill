@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "string"
+    },
+    "venue": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

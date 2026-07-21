@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "water-puppetry-staging-design: Water-Puppetry (Roi Nuoc) Scenario Design & Modern Lighting/Effects Integration"
+version: 1.0.0
+date-released: 2026-07-10
+abstract: "A professional-grade Claude Code harness for Traditional Performing Arts Staging & Production Design — gathers real-time authoritative data, applies recognized domain methods, integrates academic research, and delivers evidence-backed, risk-disclosed outputs."
+keywords:
+  - "water puppetry"
+  - "traditional performing arts"
+  - "stage design"
+  - "lighting design"
+  - "production design"
+  - "claude code skill"
+  - "ai agent harness"
+license: MIT
+type: software
+authors:
+  - name: "water-puppetry-staging-design contributors"

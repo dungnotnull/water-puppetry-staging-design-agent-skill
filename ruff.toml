@@ -1,0 +1,4 @@
+# Extend pyproject.toml for ruff configuration
+# This file is kept minimal; the primary config lives in pyproject.toml [tool.ruff]
+line-length = 120
+target-version = "py311"

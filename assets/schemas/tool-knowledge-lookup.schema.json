@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "required": [
+    "keywords"
+  ],
+  "properties": {
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "limit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50
+    },
+    "brain_path": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

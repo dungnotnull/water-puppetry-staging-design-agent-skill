@@ -1,0 +1,36 @@
+# llm_params.yaml - LLM parameters and context-window policy.
+# Used by tools/context.py::ContextBudget and the agent runner. These are the
+# production defaults; override via environment variables or per-request args.
+
+version: 1
+defaults:
+  model: "claude-sonnet-4.5"
+  temperature: 0.2
+  top_p: 0.95
+  max_output_tokens: 8192
+  context_window: 200000
+  reserve_for_output: 8192
+  soft_cap_ratio: 0.80
+  timeout_seconds: 30
+  max_retries: 3
+
+# Per-skill token guidance (advisory; enforced via ContextBudget consume).
+skill_budgets:
+  sub-gather-requirements: 1500
+  sub-evidence-collector: 6000
+  sub-core-analysis: 8000
+  sub-knowledge-updater: 4000
+  sub-advisor: 4000
+
+# Compaction policy when the budget nears its soft cap.
+compaction:
+  strategy: "tier_aware"
+  drop_order: [tier_4, tier_3, tier_2]
+  keep: [tier_1]
+  max_summary_tokens: 512
+
+error_handling:
+  on_timeout: "fallback_to_knowledge_base"
+  on_rate_limit: "exponential_backoff_with_retry_after"
+  on_parse_error: "skip_entry_and_log"
+  on_all_sources_fail: "degradation_level_4"

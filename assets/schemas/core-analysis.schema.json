@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://water-puppetry.local/schemas/core-analysis.schema.json",
+  "title": "CoreAnalysis",
+  "type": "object",
+  "required": [
+    "theme",
+    "folktale",
+    "folktale_grounded",
+    "pool",
+    "lighting",
+    "safety",
+    "scenarios"
+  ],
+  "properties": {
+    "theme": {
+      "type": "string"
+    },
+    "folktale": {
+      "type": "object"
+    },
+    "folktale_grounded": {
+      "type": "boolean"
+    },
+    "pool": {
+      "type": "object"
+    },
+    "lighting": {
+      "type": "object"
+    },
+    "fixture_checks": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "safety": {
+      "type": "object"
+    },
+    "effects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "scenarios": {
+      "type": "object",
+      "required": [
+        "best",
+        "base",
+        "worst"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://water-puppetry.local/schemas/final-report.schema.json",
+  "title": "FinalReport",
+  "description": "The human-facing report emitted by the harness (see skills/main.md Output Format).",
+  "type": "object",
+  "required": [
+    "title",
+    "date",
+    "language",
+    "executive_summary",
+    "inputs_and_scope",
+    "evidence_collected",
+    "analysis",
+    "action_plan",
+    "academic_evidence",
+    "disclosure",
+    "recommendation",
+    "gate_checklist"
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "analyst": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "Vietnamese",
+        "English"
+      ]
+    },
+    "executive_summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "inputs_and_scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_collected": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object"
+      }
+    },
+    "analysis": {
+      "type": "string",
+      "minLength": 1
+    },
+    "action_plan": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "academic_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "disclosure": {
+      "type": "string",
+      "minLength": 1
+    },
+    "recommendation": {
+      "type": "object",
+      "required": [
+        "verdict"
+      ],
+      "properties": {
+        "verdict": {
+          "type": "string",
+          "enum": [
+            "Production-Ready Design",
+            "Feasible with Refinements",
+            "High-Risk Production",
+            "Inconclusive"
+          ]
+        }
+      }
+    },
+    "gate_checklist": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

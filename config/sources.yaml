@@ -1,0 +1,70 @@
+# sources.yaml - Authoritative data sources for evidence collection and crawl.
+# Tiered per the 4-tier evidence hierarchy (see SKILL-STANDARD.md and
+# SECOND-KNOWLEDGE-BRAIN.md Section 1.2).
+
+version: 1
+domain_authoritative:
+  - name: "UNESCO ICH - Vietnamese water puppetry"
+    url: "https://ich.unesco.org"
+    tier: 1
+  - name: "OISTAT"
+    url: "https://www.oistat.org"
+    tier: 3
+  - name: "USITT"
+    url: "https://www.usitt.org"
+    tier: 3
+  - name: "ESTA/ANSI E1 standards"
+    url: "https://tsp.esta.org"
+    tier: 1
+  - name: "PLASA"
+    url: "https://www.plasa.org"
+    tier: 3
+  - name: "IEC standards"
+    url: "https://www.iec.ch"
+    tier: 1
+  - name: "Vietnam National Puppet Theatre"
+    url: "https://www.roinuoc.com.vn"
+    tier: 3
+  - name: "Thang Long Water Puppet Theatre"
+    url: "https://www.thanglongwaterpuppet.org"
+    tier: 4
+  - name: "Vietnam Museum of Ethnology"
+    url: "https://www.vme.org.vn"
+    tier: 3
+
+academic:
+  - name: "Theatre Journal"
+    venue: "Johns Hopkins University Press"
+    tier: 2
+  - name: "Performance Research"
+    venue: "Taylor & Francis"
+    tier: 2
+  - name: "Journal of Theatre and Performance Design"
+    venue: "Taylor & Francis"
+    tier: 2
+  - name: "Lighting Research & Technology"
+    venue: "SAGE"
+    tier: 2
+  - name: "Entertainment Computing"
+    venue: "Elsevier"
+    tier: 2
+  - name: "Asian Theatre Journal"
+    venue: "Project MUSE / University of Hawaii Press"
+    tier: 2
+  - name: "International Journal of Heritage Studies"
+    venue: "Taylor & Francis"
+    tier: 2
+  - name: "TDR: The Drama Review"
+    venue: "MIT Press"
+    tier: 2
+
+crawl_targets:
+  arxiv_categories: []
+  semantic_scholar_keywords:
+    - "water puppetry stage design"
+    - "traditional puppet mechanism"
+    - "stage lighting design DMX"
+    - "water theatre engineering"
+    - "multimedia performance effects"
+    - "Vietnamese folk tale repertoire"
+  rss_feeds: []

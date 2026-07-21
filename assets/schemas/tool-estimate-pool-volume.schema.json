@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "length_m",
+    "width_m",
+    "depth_m"
+  ],
+  "properties": {
+    "length_m": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "width_m": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "depth_m": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    }
+  },
+  "additionalProperties": false
+}

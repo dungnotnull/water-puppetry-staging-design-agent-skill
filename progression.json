@@ -1,0 +1,159 @@
+{
+  "skill_number": 167,
+  "skill_name": "water-puppetry-staging-design",
+  "status": "complete",
+  "version": "1.1.0",
+  "phases": {
+    "phase_0": {
+      "name": "Research & Skill Architecture",
+      "status": "complete",
+      "completion": 100
+    },
+    "phase_1": {
+      "name": "Core Sub-Skills",
+      "status": "complete",
+      "completion": 100
+    },
+    "phase_2": {
+      "name": "Main Harness + Quality Gates",
+      "status": "complete",
+      "completion": 100
+    },
+    "phase_3": {
+      "name": "SECOND-KNOWLEDGE-BRAIN Pipeline",
+      "status": "complete",
+      "completion": 100
+    },
+    "phase_4": {
+      "name": "Testing & Validation",
+      "status": "complete",
+      "completion": 100
+    },
+    "phase_5": {
+      "name": "Integration & Polish",
+      "status": "complete",
+      "completion": 100
+    },
+    "phase_6": {
+      "name": "Production-Grade Hardening & Open-Source Readiness",
+      "status": "complete",
+      "completion": 100
+    },
+    "phase_7": {
+      "name": "Flexible Agent Architecture, Hooks, Tools & Modular Directories",
+      "status": "complete",
+      "completion": 100
+    }
+  },
+  "last_updated": "2026-07-20",
+  "deliverables": {
+    "open_source_files": [
+      "LICENSE",
+      "CHANGELOG.md",
+      "CONTRIBUTING.md",
+      "CODE_OF_CONDUCT.md",
+      "SECURITY.md",
+      "CITATION.cff"
+    ],
+    "packaging": [
+      "pyproject.toml",
+      "Makefile",
+      "requirements.txt"
+    ],
+    "ci_cd": [
+      ".github/workflows/ci.yml",
+      ".github/workflows/release.yml"
+    ],
+    "tooling": [
+      ".pre-commit-config.yaml",
+      ".editorconfig",
+      "ruff.toml",
+      ".env.example"
+    ],
+    "package_modules": [
+      "tools/__init__.py",
+      "tests/__init__.py",
+      "tools/logger.py",
+      "tools/exceptions.py",
+      "tools/config.py"
+    ],
+    "domain_skills": [
+      "skills/main.md",
+      "skills/sub-gather-requirements.md",
+      "skills/sub-evidence-collector.md",
+      "skills/sub-core-analysis.md",
+      "skills/sub-knowledge-updater.md",
+      "skills/sub-advisor.md"
+    ],
+    "tools": [
+      "tools/knowledge_updater.py",
+      "tools/run_test_scenarios.py",
+      "tools/test_knowledge_updater.py",
+      "tools/validate_project.py"
+    ],
+    "docs": [
+      "CLAUDE.md",
+      "PROJECT-detail.md",
+      "PROJECT-DEVELOPMENT-PHASE-TRACKING.md",
+      "README.md",
+      "SECOND-KNOWLEDGE-BRAIN.md",
+      "SKILL-STANDARD.md"
+    ],
+    "tests": [
+      "tests/test-scenarios.md",
+      "tests/TEST_RESULTS.md"
+    ],
+    "agent_runtime_modules": [
+      "tools/schema.py",
+      "tools/state.py",
+      "tools/context.py",
+      "tools/hooks.py",
+      "tools/tool_registry.py",
+      "tools/skill_registry.py",
+      "tools/router.py",
+      "tools/agent_runner.py",
+      "tools/config_loader.py"
+    ],
+    "scripts": [
+      "scripts/orchestrate.py",
+      "scripts/seed_knowledge_base.py",
+      "scripts/run_crawl.py",
+      "scripts/setup_env.py",
+      "scripts/validate_output.py"
+    ],
+    "references": [
+      "references/folk-tale-repertoire.md",
+      "references/lighting-standards.md",
+      "references/water-stage-engineering.md",
+      "references/safety-protocols.md",
+      "references/domain-glossary.md",
+      "references/prompt-templates/"
+    ],
+    "assets": [
+      "assets/diagrams/harness-architecture.mmd",
+      "assets/diagrams/skill-registry-flow.mmd",
+      "assets/diagrams/hooks-lifecycle.mmd",
+      "assets/schemas/*.schema.json"
+    ],
+    "config": [
+      "config/skill_registry.yaml",
+      "config/tools.yaml",
+      "config/hooks.yaml",
+      "config/feature_flags.yaml",
+      "config/llm_params.yaml",
+      "config/sources.yaml"
+    ],
+    "skill_registry_doc": [
+      "SKILL.md"
+    ],
+    "new_tests": [
+      "tools/test_schema.py",
+      "tools/test_router.py",
+      "tools/test_hooks.py",
+      "tools/test_tool_registry.py",
+      "tools/test_skill_registry.py",
+      "tools/test_agent_runner.py",
+      "tools/test_config_loader.py"
+    ]
+  }
+}

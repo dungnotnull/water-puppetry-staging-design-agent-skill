@@ -1,0 +1,20 @@
+%% harness-architecture.mmd - Mermaid diagram of the agent harness
+flowchart TD
+    U([User Input]) --> PF[Pre-Flight: Language Detection]
+    PF --> R[IntentRouter - Chain-of-Thought]
+    R --> S1[sub-gather-requirements]
+    S1 --> S2[sub-evidence-collector]
+    S2 --> S3{needs_core_analysis?}
+    S3 -- yes --> S4[sub-core-analysis]
+    S3 -- no --> S5
+    S4 --> S5[sub-knowledge-updater]
+    S5 --> S6[sub-advisor]
+    S6 --> QG[Quality Gates U1-U6 + G1-G4]
+    QG -- pass --> OUT([Final Report])
+    QG -- fail after 2 retries --> LIM[LIMITATION Notice]
+    LIM --> OUT
+    S2 -. degraded .- DL[Degradation Level 0-4]
+    DL --> QG
+
+    classDef skill fill:#e8f0fe,stroke:#1a73e8,stroke-width:1px;
+    class S1,S2,S4,S5,S6 skill;

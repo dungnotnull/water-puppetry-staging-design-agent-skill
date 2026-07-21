@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://water-puppetry.local/schemas/tool-call.schema.json",
+  "title": "ToolCall",
+  "description": "Envelope for a dynamic tool invocation by an agent.",
+  "type": "object",
+  "required": [
+    "tool",
+    "args"
+  ],
+  "properties": {
+    "tool": {
+      "type": "string",
+      "minLength": 1
+    },
+    "args": {
+      "type": "object"
+    },
+    "call_id": {
+      "type": "string"
+    },
+    "validate_io": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}

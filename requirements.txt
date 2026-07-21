@@ -1,0 +1,5 @@
+crawl4ai>=0.3.0
+feedparser>=6.0.10
+python-dateutil>=2.8.2
+requests>=2.31.0
+PyYAML>=6.0.1

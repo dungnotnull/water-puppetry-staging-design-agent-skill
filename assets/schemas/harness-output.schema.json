@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://water-puppetry.local/schemas/harness-output.schema.json",
+  "title": "HarnessOutput",
+  "type": "object",
+  "required": [
+    "requirements",
+    "evidence",
+    "core_analysis",
+    "knowledge",
+    "advisor",
+    "verdict",
+    "degradation_level"
+  ],
+  "properties": {
+    "requirements": {
+      "type": "object"
+    },
+    "evidence": {
+      "type": "object"
+    },
+    "core_analysis": {
+      "type": "object"
+    },
+    "knowledge": {
+      "type": "object"
+    },
+    "advisor": {
+      "type": "object"
+    },
+    "verdict": {
+      "type": "string"
+    },
+    "degradation_level": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4
+    }
+  },
+  "additionalProperties": true
+}
